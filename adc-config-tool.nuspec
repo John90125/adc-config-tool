@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>adc-config-tool</id>
+        <version>1.0.0</version>
+        <title>ADC Config Tool Choco Package</title>
+        <authors>jhart</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>ADC Config Tool installer</description>
+    </metadata>
+    <files>
+        <file src="tools\chocolateyInstall.ps1" target="tools\chocolateyInstall.ps1" />
+    </files>
+</package>

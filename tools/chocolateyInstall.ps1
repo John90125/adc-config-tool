@@ -23,8 +23,8 @@ if([string]::IsNullOrWhiteSpace($serverName)){
 
 $packageName = 'ADC_Config_Tool' 
 $installerType = 'exe'
-$url = 'http://ic-nexus.cloudapp.net/nexus/content/repositories/VersioCloud/'
-$version = 'ADC/ADC_Config_Tool/12.23.36.0M/'
+$url = 'http://ic-artf.cloudapp.net:8081/artifactory/ImagineBinaryRepo/'
+$version = 'ADC/ConfigTool/12.23.36.0M/'
 $url64 = $url
 $validExitCodes = @(0)
 $scriptPath = $(Split-Path $MyInvocation.MyCommand.Path)
@@ -38,7 +38,7 @@ if (![System.IO.Directory]::Exists($tempDir)) { [System.IO.Directory]::CreateDir
 
 # Initial installer location variables
 $fileSetupExe = Join-Path $tempDir "ADC_Config_Tool-setup.exe"
-$setupExe = $url+$version+'ADC_Config_Tool-12.23.36.0M-setup.exe'
+$setupExe = $url+$version+'ADC_Config_Tool-12.23.36.0M.exe'
 $fileInstallResponse = Join-Path $tempDir "ADC_Config_Tool-12.23.36.0M-install_response.iss"
 $installResponseIss = $url+$version+'ADC_Config_Tool-12.23.36.0M-install_response.iss'
 $fileUninstallResponse = Join-Path $tempDir "ADC_Config_Tool-uninstall_response.iss"
@@ -46,7 +46,7 @@ $uninstallResponseIss = $url+$version+'ADC_Config_Tool-12.23.36.0M-uninstall_res
 
 # Get Common Powershell script
 $fileCommonFnc = Join-Path $tempDir "CommonFnc.ps1"
-$urlPS1 = $url+'psScripts/common/1.0/common-1.0-commonFunctions.ps1'
+$urlPS1 = 'http://ic-nexus.cloudapp.net/nexus/content/repositories/VersioCloud/psScripts/common/1.0/common-1.0-commonFunctions.ps1'
 Get-WebFile $urlPS1 $fileCommonFnc
 
 # Put Powershell script into memory
